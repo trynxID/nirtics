@@ -46,7 +46,7 @@ include "lib/koneksi.php";
 <!-- ========== Start List Event ========== -->
 <section id="featuredEvent">
     <?php
-    $sql = "SELECT id_event,gambar,event.nama as nama,tanggal,organizer.nama as organizer FROM event JOIN organizer USING (id_organizer) where status='ready' order by rand() LIMIT 4; ";
+    $sql = "SELECT id_event,gambar,event.nama as nama,tanggal,harga FROM event LEFT JOIN tiket USING (id_tiket) where status='ready' order by rand() LIMIT 4; ";
     $result = mysqli_query($link, $sql);
     ?>
     <div class="container">
@@ -68,9 +68,7 @@ include "lib/koneksi.php";
                                     echo ((isset($row['harga'])) ? number_format($row['harga']) : '-')
                                     ?>
                                 </h6>
-                                <hr class="mt-2 mb-2">
-                                <h6 class="my-auto text-center"><?php echo (strlen($row['organizer']) > 25) ? str_pad(substr($row['organizer'], 0, 22), 25, ".") : $row['organizer'] ?></h6>
-                                <a href="desc.php?id_event=<?php echo $row['id_event'] ?>" class="stretched-link"></a>
+                                <a href="member/desc.php?id_event=<?php echo $row['id_event'] ?>" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +81,7 @@ include "lib/koneksi.php";
 <!-- Musik -->
 <section id="musicEvent">
     <?php
-    $sql = "SELECT id_event,gambar,event.nama as nama,tanggal,organizer.nama as organizer FROM event JOIN organizer USING (id_organizer) where status='ready' and id_kategori=1 LIMIT 4;";
+    $sql = "SELECT id_event,gambar,event.nama as nama,tanggal,harga FROM event LEFT JOIN tiket USING (id_tiket) where status='ready' and id_kategori=1 LIMIT 4;";
     $result = mysqli_query($link, $sql);
     ?>
     <div class="container">
@@ -106,8 +104,7 @@ include "lib/koneksi.php";
                                     ?>
                                 </h6>
                                 <hr class="mt-2 mb-2">
-                                <h6 class="my-auto text-center"><?php echo (strlen($row['organizer']) > 25) ? str_pad(substr($row['organizer'], 0, 22), 25, ".") : $row['organizer'] ?></h6>
-                                <a href="desc.php?id_event=<?php echo $row['id_event'] ?>" class="stretched-link"></a>
+                                <a href="member/desc.php?id_event=<?php echo $row['id_event'] ?>" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -120,7 +117,7 @@ include "lib/koneksi.php";
 <!-- Sport -->
 <section id="sportEvent">
     <?php
-    $sql = "SELECT id_event,gambar,event.nama as nama,tanggal,organizer.nama as organizer FROM event JOIN organizer USING (id_organizer) where status='ready' and id_kategori=6 LIMIT 4;";
+    $sql = "SELECT id_event,gambar,event.nama as nama,tanggal,harga FROM event LEFT JOIN tiket USING (id_tiket) where status='ready' and id_kategori=6 LIMIT 4;";
     $result = mysqli_query($link, $sql);
     ?>
     <div class="container">
@@ -139,12 +136,11 @@ include "lib/koneksi.php";
                                 <h6 class="mb-3 ">
                                     <?php
                                     echo "Rp. ";
-                                    echo ((isset($row['harga'])) ? number_format($row['harga']) : '-')
+                                    echo ((isset($row['harga'])) ? number_format($row['harga'], 0, ',', '.') : '-')
                                     ?>
                                 </h6>
                                 <hr class="mt-2 mb-2">
-                                <h6 class="my-auto text-center"><?php echo (strlen($row['organizer']) > 25) ? str_pad(substr($row['organizer'], 0, 22), 25, ".") : $row['organizer'] ?></h6>
-                                <a href="desc.php?id_event=<?php echo $row['id_event'] ?>" class="stretched-link"></a>
+                                <a href="member/desc.php?id_event=<?php echo $row['id_event'] ?>" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>

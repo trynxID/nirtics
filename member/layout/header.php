@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="layout/stylesheet.css" type="text/css" />
     <link rel="stylesheet" link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -18,7 +19,7 @@
 <body>
     <header>
         <?php include "../lib/koneksi.php";
-        $query = mysqli_query($link, "SELECT * FROM user where id_user = '$id'");
+        $query = mysqli_query($link, "SELECT * FROM user where id_user = '$ses_id'");
         $data = mysqli_fetch_assoc($query);
         ?>
         <nav class="navbar navbar-expand-lg navbar-dark shadow">
