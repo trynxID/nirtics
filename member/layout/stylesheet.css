@@ -1,7 +1,10 @@
 .selector-for-some-widget {
   box-sizing: content-box;
 }
-
+#desc .btndesc #deskripsi {
+  background-color: darkblue !important;
+  color: white;
+}
 .navbar {
   background-color: #021780;
   font-size: large;

@@ -1,19 +1,24 @@
 <?php
 include "../lib/koneksi.php";
+$post = $_POST;
+if (empty($post)) {
+    header("Location: desc.php");
+}
 session_start();
-$qty = $_POST['qty'];
-$event = $_SESSION['event'];
-$harga = $_SESSION['harga'];
-$total = $harga * $qty;
-if ($qty == 0) {
-    $_SESSION['event'] = $event;
-    header('location: desc.php');
-} else {
-    $sql = "INSERT INTO detail_transaksi (id_event,qty,total) VALUES ('$event','$qty','$total')";
+$ses_id = $_SESSION['id'];
+$sqlCreateTransaksi = mysqli_query($link, "INSERT INTO transaksi (id_user,status) values ($ses_id,'MENUNGGU')");
+$sqlReqID = mysqli_query($link, "SELECT MAX(id_transaksi) as id_transaksi from transaksi");
+$ReqID = mysqli_fetch_assoc($sqlReqID);
+$id_transaksi = $ReqID['id_transaksi'];
+$id_tikets = $_POST['tiketId'];
+$qtys = $_POST['qty'];
+$totals = $_POST['total'];
+foreach ($id_tikets as $key => $id_tiket) {
+    $qty = $qtys[$key];
+    $total = $totals[$key];
+    $sql = "INSERT INTO detail_transaksi (id_tiket,id_transaksi,qty,subtotal) VALUES ('$id_tiket','$id_transaksi','$qty','$total')";
     if (mysqli_query($link, $sql)) {
-        $result = mysqli_query($link, "SELECT id_detail as id FROM detail_transaksi order by id_detail desc limit 1");
-        $detail = mysqli_fetch_assoc($result);
-        $_SESSION['detail'] = $detail['id'];
+        $_SESSION['transaksi'] = $id_transaksi;
         header("location:detail.php");
     } else {
         header("location:index.php");

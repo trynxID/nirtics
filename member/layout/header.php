@@ -39,10 +39,10 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Event</a>
+                            <a class="nav-link" aria-current="page" aria-selected="true" href="index.php">Event</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#featuredEvent">My Ticket</a>
+                            <a class="nav-link" href="mytiket.php" aria-selected="false">My Ticket</a>
                         </li>
                         <li class="nav-item my-auto">
                             <div class="dropdown">

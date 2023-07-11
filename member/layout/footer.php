@@ -1,4 +1,4 @@
-    <footer class="py-3 text-center sticky-bottom">
+    <footer class="py-3 text-center">
         <div class="container">
             <hr>
             <p>Hak Cipta &copy; 2023 Nirtics-Aplikasi Penjualan Tiket Event</p>
