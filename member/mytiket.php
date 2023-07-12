@@ -6,13 +6,12 @@ if (!empty($_SESSION['status'])) {
     include "layout/header.php";
     include "../lib/koneksi.php";
 ?>
-    <div class="container-fluid" style="min-height: 76vh;">
-        <div class="row">
-            <?php include "filter.php"; ?>
+    <div class="container" style="min-height: 76vh;">
+        <div class="row justify-content-center">
             <div class="col-lg-10">
                 <section id="mytiket">
                     <?php
-                    $sql = "SELECT * from mytiket where id_user=$ses_id and status='SUKSES'";
+                    $sql = "SELECT * from mytiket where id_user=$ses_id and status='SUKSES' order by tanggal_transaksi desc";
                     $reqData = mysqli_query($link, $sql);
                     ?>
                     <div class="container">

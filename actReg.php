@@ -7,7 +7,8 @@ $email = $_POST['email'];
 $noHp = $_POST['noHp'];
 $date_join = date("Y-m-d H:i:s");
 $level = "user";
-$sql = "INSERT INTO user (fullname,username,password,email,date_join,level,no_hp) VALUES ('$fullname','$username','$password','$email','$date_join','$level','$noHp')";
+$foto = "default.png";
+$sql = "INSERT INTO user (fullname,username,password,email,date_join,level,no_hp,foto) VALUES ('$fullname','$username','$password','$email','$date_join','$level','$noHp','$foto')";
 if (mysqli_query($link, $sql)) {
     header("location:login.php");
 } else {

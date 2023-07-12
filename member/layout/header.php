@@ -47,11 +47,11 @@
                         <li class="nav-item my-auto">
                             <div class="dropdown">
                                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="avatar" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../assets/default.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                                    <img src="../assets/<?php echo $data['foto'] ?>" alt="" width="32" height="32" class="rounded-circle me-2">
                                     <?php echo $data['fullname'] ?>
                                 </a>
                                 <ul class="dropdown-menu text-small shadow" aria-labelledby="avatar">
-                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="myprofile.php">My Profile</a></li>
                                     <li><a class="dropdown-item" href="../logout.php">Logout</a></li>
                                 </ul>
                             </div>

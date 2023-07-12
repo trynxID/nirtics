@@ -80,7 +80,7 @@ if (!empty($_SESSION['status'])) {
                                 while ($metode = mysqli_fetch_assoc($reqMetode)) {
                                 ?>
                                     <div class="form-check">
-                                        <input class="form-check-input mediaBayar" type="radio" name="flexRadioDefault" id="Radio<?php echo $metode['id_metode'] ?>" value="<?php echo $metode['id_metode'] ?>">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="Radio<?php echo $metode['id_metode'] ?>" value="<?php echo $metode['nama'] ?>">
                                         <label class="form-check-label" for="Radio<?php echo $metode['id_metode'] ?>">
                                             <?php echo $metode['nama']; ?>
                                         </label>
@@ -90,104 +90,61 @@ if (!empty($_SESSION['status'])) {
                         </div>
                     </div>
                     <div class="card">
-                        <form action="actBuy.php" method="POST">
-                            <div class="card-body">
-                                <h5 class="mb-3">Detail Harga</h5>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-6 me-3">Total Harga </div>
-                                        <?php
-                                        $reqTotal1 = mysqli_query($link, "SELECT SUM(dt.subtotal) as total FROM detail_transaksi dt join tiket using (id_tiket) where id_transaksi = $transaksi");
-                                        while ($total = mysqli_fetch_assoc($reqTotal1)) {
-                                        ?>
-                                            <input type="hidden" name="subtotal" id="subtotal" value="<?= $total['total'] ?>">
-                                            <div class="col text-end">
-                                                <?php echo "Rp. " . number_format($total['total'], 0, ',', '.'); ?>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6 me-3">Biaya Admin </div>
+                        <div class="card-body">
+                            <h5 class="mb-3">Detail Harga</h5>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-6 me-3">Total Harga </div>
+                                    <?php
+                                    $reqTotal1 = mysqli_query($link, "SELECT SUM(dt.subtotal) as total FROM detail_transaksi dt join tiket using (id_tiket) where id_transaksi = $transaksi");
+                                    while ($total = mysqli_fetch_assoc($reqTotal1)) {
+                                    ?>
                                         <div class="col text-end">
-                                            <input type="hidden" name="id_metode" id="id_metode">
-                                            <input type="hidden" name="biayaadmin" id="biayaadmin">
-                                            Rp. <span id="biayaadmin-label">0</span>
+                                            <?php
+                                            echo "Rp. ";
+                                            echo number_format($total['total'], 0, ',', '.'); ?>
                                         </div>
-                                    </div>
-                                    <hr class="my-2">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h6 class="fw-medium">Total Biaya</h6>
-                                        </div>
+                                    <?php } ?>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 me-3">Biaya Admin </div>
+                                    <div class="col text-end">
                                         <?php
-                                        $reqTotal2 = mysqli_query($link, "SELECT SUM(dt.subtotal) as total FROM detail_transaksi dt join tiket using (id_tiket) where id_transaksi = $transaksi");
-                                        while ($total = mysqli_fetch_assoc($reqTotal2)) {
+                                        echo "Rp. ";
+                                        echo number_format(0, 0, ',', '.');
                                         ?>
-                                            <div class="col text-end">
-                                                <h6 class="fw-medium">
-                                                    <input type="hidden" name="total" id="total">
-                                                    Rp. <span id="total-label"><?php echo number_format((($total['total']) + 0), 0, ',', '.'); ?></span>
-                                                </h6>
-                                            </div>
-                                        <?php } ?>
                                     </div>
                                 </div>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <h6 class="fw-medium">Total Biaya</h6>
+                                    </div>
+                                    <?php
+                                    $reqTotal2 = mysqli_query($link, "SELECT SUM(dt.subtotal) as total FROM detail_transaksi dt join tiket using (id_tiket) where id_transaksi = $transaksi");
+                                    while ($total = mysqli_fetch_assoc($reqTotal2)) {
+                                    ?>
+                                        <div class="col text-end">
+                                            <h6 class="fw-medium">
+                                                <?php
+                                                echo "Rp. ";
+                                                echo number_format((($total['total']) + 0), 0, ',', '.');
+                                                ?>
+                                            </h6>
+                                        </div>
+                                    <?php } ?>
+                                </div>
                             </div>
-                            <button class="btn btn-primary w-100" type="submit">Konfirmasi</button>
-                        </form>
+                        </div>
                     </div>
+                    <form action="actBuy.php">
+                        <button class="btn btn-primary w-100" type="submit">Konfirmasi</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        $('.mediaBayar').change(function(e) {
-            e.preventDefault();
-            let id = $(this).val();
-            let subtotal = $('#subtotal').val();
-            $.ajax({
-                url: 'actPayment.php',
-                type: "POST",
-                dataType: "JSON",
-                data: {
-                    id: id,
-                    subtotal: subtotal
-                },
-                success: function(data) {
-                    if (data.code == 200) {
-                        $('#id_metode').val(data.id_metode);
-                        $('#biayaadmin').val(data.biaya);
-                        $('#biayaadmin-label').html(data.biaya_currency);
-                        $('#total').val(data.total);
-                        $('#total-label').html(data.total_currency);
-                    } else if (data.code == 400) {
-                        console.log(data.message);
-                    } else {
-                        console.log(data.message);
-                    }
-                },
-                error: function(jqXHR, textStatus) {
-                    var errorMessage = '';
-                    if (jqXHR.status === 0) {
-                        errorMessage = 'Not connected.\n Verify Network.';
-                    } else if (jqXHR.status == 404) {
-                        errorMessage = 'Requested page not found. [404]';
-                    } else if (jqXHR.status == 500) {
-                        errorMessage = 'Internal Server Error [500].';
-                    } else if (textStatus === 'parsererror') {
-                        errorMessage = 'Requested JSON parse failed.';
-                    } else if (textStatus === 'timeout') {
-                        errorMessage = 'Time out error.';
-                    } else if (textStatus === 'abort') {
-                        errorMessage = 'Ajax request aborted.';
-                    } else {
-                        errorMessage = 'Uncaught Error.\n' + jqXHR.responseText;
-                    }
-                    console.log(`Error ${jqXHR.status}\n${errorMessage}`)
-                }
-            });
-        });
-    </script>
+
 <?php
     include "layout/footer.php";
 } else {
