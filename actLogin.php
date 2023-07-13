@@ -9,7 +9,7 @@ if (mysqli_num_rows($result) == 1) {
 	session_start();
 	$_SESSION['id'] = $user['id_user'];
 	$_SESSION['status'] = 'Login';
-	$user['level'] == 'admin' ? header("Location: admin/index.php") : header("Location: member/index.php");
+	$user['level'] == 'admin' ? header("Location: admin/dashboard.php") : header("Location: member/index.php");
 } else {
 	$errors['invalid'] = 'Username/Email Invalid!';
 	header('Location: login.php?pesan=gagal');

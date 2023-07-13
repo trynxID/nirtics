@@ -31,7 +31,7 @@ if (!empty($_SESSION['status'])) {
                                             <div class="card-body">
                                                 <h5> <?php echo $data['event'] ?></h5>
                                                 <span>
-                                                    <i class="text-primary fa-solid fa-calendar-days fa-fw pe-3"></i>
+                                                    <i class="text-primary fa-solid fa-ticket fa-fw pe-3"></i>
                                                     <?php echo $data['event'] ?>
                                                     |
                                                     <?php echo $data['qty'] ?>

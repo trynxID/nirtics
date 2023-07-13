@@ -9,6 +9,7 @@ $tanggal = date("Y-m-d H:i:s", time());
 $status = 'SUKSES';
 $pushUpdateData = "UPDATE transaksi SET id_metode='$id_metode',tanggal='$tanggal',total='$total',status='$status' where id_transaksi='$transaksi'";
 if (mysqli_query($link, $pushUpdateData)) {
+    $sql = "select";
     header("location: mytiket.php");
 } else {
     header("location: index.php");

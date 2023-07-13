@@ -23,15 +23,9 @@
         ?>
         <nav class="navbar navbar-expand-lg navbar-dark shadow">
             <div class="container">
-                <a class="navbar-brand col-ms-3" href="#">
+                <a class="navbar-brand col-ms-3" href="dashboard.php">
                     <img src="../assets/logo.png" width="130" height="35">
                 </a>
-                <form class="d-flex col-5" role="search">
-                    <input class="form-control me-1 " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline" type="submit">
-                        <img src="../assets/search.png" width="24">
-                    </button>
-                </form>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -44,8 +38,6 @@
                                     <?php echo $data['fullname'] ?>
                                 </a>
                                 <ul class="dropdown-menu text-small shadow" aria-labelledby="avatar">
-                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
-                                    <li><a class="dropdown-item" href="#">My Ticket</a></li>
                                     <li><a class="dropdown-item" href="../logout.php">Logout</a></li>
                                 </ul>
                             </div>

@@ -27,7 +27,7 @@
                 <a class="navbar-brand col-ms-3" href="index.php">
                     <img src="../assets/logo.png" width="130" height="35">
                 </a>
-                <form class="d-flex col-5" role="search">
+                <form class="d-flex col-5" role="search" action="actSearch.php" method="post">
                     <input class="form-control me-1 " type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline" type="submit">
                         <img src="../assets/search.png" width="24">
