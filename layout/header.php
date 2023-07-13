@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark shadow">
             <div class="container">
                 <a class="navbar-brand col-ms-3" href="#">
-                    <img src="assets/logo.png" width="130" height="35">
+                    <img src="assets/logo.png" width="130" height="30">
                 </a>
                 <form class="d-flex col-5" role="search">
                     <input class="form-control me-1 " type="search" placeholder="Search" aria-label="Search">
