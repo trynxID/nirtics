@@ -16,12 +16,6 @@
                 <a class="navbar-brand col-ms-3" href="#">
                     <img src="assets/logo.png" width="130" height="30">
                 </a>
-                <form class="d-flex col-5" role="search">
-                    <input class="form-control me-1 " type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline" type="submit">
-                        <img src="assets/search.png" width="24">
-                    </button>
-                </form>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
