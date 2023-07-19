@@ -6,7 +6,7 @@ if (!empty($_SESSION['status'])) {
     include "../lib/koneksi.php";
 ?>
     <main>
-        <div class="container" style="min-height: 76vh;">
+        <div class="container-fluid" style="min-height: 76vh;">
             <div class="row" text-center mb-3>
                 <?php include "sidebar.php" ?>
                 <div class="col-lg-10 mt-4">
@@ -18,16 +18,10 @@ if (!empty($_SESSION['status'])) {
                                         <div class="row">
                                             <?php $reqKategori = mysqli_query($link, "SELECT * from kategori"); ?>
                                             <h3>Add Event</h3>
-                                            <form method="POST" action="actAddEvent.php" enctype="multipart/form-data">
-                                                <div class="card h-300 mb-3">
-                                                    <img src="../assets/<?php echo $data['gambar']; ?>" class="card-img-top" alt="Poster">
-                                                    <div class="card-body">
-                                                        <label for="gambar" class="btn btn-primary">
-                                                            Choose Image
-                                                            <input type="file" class="form-control-file d-none" id="gambar" name="gambar">
-
-                                                        </label>
-                                                    </div>
+                                            <form method="POST" action="eventAddAct.php" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <label for="gambar" class="form-label">Photo Profile</label>
+                                                    <input type="file" class="form-control" id="gambar" name="gambar" required>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="nama" class="form-label">Nama</label>
@@ -95,9 +89,3 @@ if (!empty($_SESSION['status'])) {
     header('Location: ../login.php');
 }
 ?>
-
-<script>
-    function confirmDelete() {
-        return confirm("Are you sure you want to delete this event?");
-    }
-</script>

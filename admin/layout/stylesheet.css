@@ -9,6 +9,9 @@
 .nav-item .active {
   font-weight: 500;
 }
+a:active {
+  background-color: black;
+}
 .btn {
   position: relative;
 }
@@ -34,4 +37,3 @@ footer {
   background-color: #021780 !important;
   color: white;
 }
-

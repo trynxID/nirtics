@@ -6,7 +6,7 @@ if (!empty($_SESSION['status'])) {
     include "../lib/koneksi.php";
 ?>
     <main>
-        <div class="container" style="min-height: 76vh;">
+        <div class="container-fluid" style="min-height: 76vh;">
             <div class="row" text-center mb-3>
                 <?php include "sidebar.php" ?>
                 <div class="col-lg-10 mt-4">
@@ -24,16 +24,16 @@ if (!empty($_SESSION['status'])) {
                                 <div class="card-body">
                                     <div class="container">
                                         <div class="row">
-                                            <h3>Tiket <?php echo $event['nama']  ?></h3>
+                                            <h3>Ticket : <?php echo $event['nama']  ?></h3>
                                             <div class="text-start mt-3 mb-3">
-                                                <a href="addTicket.php" class="btn btn-primary">Add Ticket</a>
+                                                <a href="ticketAdd.php?id_event=<?php echo $id_event; ?> " class="btn btn-primary">Add Ticket</a>
                                             </div>
                                             <table class="table table-bordered">
                                                 <thead>
                                                     <tr class="text-center">
-                                                        <th>Jenis Tiket</th>
-                                                        <th>Harga</th>
-                                                        <th>Stok</th>
+                                                        <th>Ticket Name</th>
+                                                        <th>Price</th>
+                                                        <th>Stock</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -44,9 +44,8 @@ if (!empty($_SESSION['status'])) {
                                                             <td><?php echo $data['harga']; ?></td>
                                                             <td><?php echo $data['stok']; ?></td>
                                                             <td class="mx-0 px-0 text-center">
-                                                                <a href="editEvent.php?id_event=<?php echo $data['id_event']; ?>" class="btn btn-primary">Manage</a>
-                                                                <a href="delete.php?id_event=<?php echo $data['id_event']; ?>" class="btn btn-danger" onclick="return confirmDelete();">Delete</a>
-                                                                <a href="editTiket.php?id_event=<?php echo $data['id_event']; ?>" class="btn btn-success">Ticket</a>
+                                                                <a href="ticketEdit.php?id_tiket=<?php echo $data['id_tiket'] . "&id_event=" . $id_event; ?>" class="btn btn-primary">Edit</a>
+                                                                <a href="ticketDelete.php?id_tiket=<?php echo $data['id_tiket'] . "&id_event=" . $id_event; ?>" class="btn btn-danger" onclick="return confirmDelete();">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -71,6 +70,6 @@ if (!empty($_SESSION['status'])) {
 
 <script>
     function confirmDelete() {
-        return confirm("Are you sure you want to delete this event?");
+        return confirm("Are you sure you want to delete this ticket?");
     }
 </script>

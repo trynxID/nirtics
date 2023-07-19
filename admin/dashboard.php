@@ -6,7 +6,7 @@ if (!empty($_SESSION['status'])) {
     include "../lib/koneksi.php";
 ?>
     <main>
-        <div class="container" style="min-height: 76vh;">
+        <div class="container-fluid" style="min-height: 76vh;">
             <div class="row" text-center mb-3>
                 <?php include "sidebar.php" ?>
                 <div class="col-lg-10 mt-4">
@@ -44,6 +44,7 @@ if (!empty($_SESSION['status'])) {
             </div>
         </div>
     </main>
+
 <?php
     include "layout/footer.php";
 } else {

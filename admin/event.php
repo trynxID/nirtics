@@ -6,7 +6,7 @@ if (!empty($_SESSION['status'])) {
     include "../lib/koneksi.php";
 ?>
     <main>
-        <div class="container" style="min-height: 76vh;">
+        <div class="container-fluid" style="min-height: 76vh;">
             <div class="row" text-center mb-3>
                 <?php include "sidebar.php" ?>
                 <div class="col-lg-10 mt-4">
@@ -24,14 +24,14 @@ if (!empty($_SESSION['status'])) {
                                             <h3 class="mb-0">List Event</h3>
                                             <div class="col">
                                                 <div class="text-start mt-3 mb-3">
-                                                    <a href="addEvent.php" class="btn btn-primary">Add Event</a>
+                                                    <a href="eventAdd.php" class="btn btn-success">Add Event</a>
                                                 </div>
-                                                <table class="table table-bordered">
+                                                <table class="table table-bordered table-striped">
                                                     <thead>
                                                         <tr class="text-center">
-                                                            <th>Event Name</th>
-                                                            <th>Status</th>
-                                                            <th>Action</th>
+                                                            <th class="text-white" style="background-color: #021780;">Event Name</th>
+                                                            <th class="text-white" style="background-color: #021780;">Status</th>
+                                                            <th class="text-white" style="background-color: #021780;">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -40,9 +40,9 @@ if (!empty($_SESSION['status'])) {
                                                                 <td><?php echo $row['nama']; ?></td>
                                                                 <td class="text-center"><?php echo $row['status'] ?></td>
                                                                 <td class="mx-0 px-0 text-center">
-                                                                    <a href="editEvent.php?id_event=<?php echo $row['id_event']; ?>" class="btn btn-primary">Manage</a>
-                                                                    <a href="deleteEvent.php?id_event=<?php echo $row['id_event']; ?>" class="btn btn-danger" onclick="return confirmDelete();">Delete</a>
-                                                                    <a href="tiket.php?id_event=<?php echo $row['id_event']; ?>" class="btn btn-success">Ticket</a>
+                                                                    <a href="eventEdit.php?id_event=<?php echo $row['id_event']; ?>" class="btn btn-warning">Manage</a>
+                                                                    <a href="eventDelete.php?id_event=<?php echo $row['id_event']; ?>" class="btn btn-danger" onclick="return confirmDelete();">Delete</a>
+                                                                    <a href="ticket.php?id_event=<?php echo $row['id_event']; ?>" class="btn btn-success">Ticket</a>
                                                                 </td>
                                                             </tr>
                                                         <?php } ?>
@@ -59,6 +59,15 @@ if (!empty($_SESSION['status'])) {
             </div>
         </div>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $('#sidebar a').click(function(e) {
+                $('#sidebar a').removeClass('active');
+                $(this).addClass('active');
+            })
+        })
+    </script>
 <?php
     include "layout/footer.php";
 } else {

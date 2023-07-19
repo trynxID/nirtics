@@ -12,7 +12,7 @@ if (!empty($_SESSION['status'])) {
                 <div class="col-lg-10 mt-4">
                     <?php
                     include "../lib/koneksi.php";
-                    $sql = "SELECT * FROM transaksi left join user using(id_user) left join metode_pembayaran using(id_metode);";
+                    $sql = "SELECT * FROM metode_pembayaran;";
                     $result = mysqli_query($link, $sql);
                     ?>
                     <div class="container">
@@ -21,28 +21,28 @@ if (!empty($_SESSION['status'])) {
                                 <div class="card-body">
                                     <div class="container">
                                         <div class="row">
-                                            <h3>List Transaksi</h3>
+                                            <h3 class="mb-0">Payment Method</h3>
                                             <div class="col">
+                                                <div class="text-start mt-3 mb-3">
+                                                    <a href="paymentAdd.php" class="btn btn-success">Add Payment Method</a>
+                                                </div>
                                                 <table class="table table-bordered table-striped">
                                                     <thead>
                                                         <tr class="text-center">
-                                                            <th class="text-white" style="background-color: #021780;">ID</th>
-                                                            <th class="text-white" style="background-color: #021780;">User</th>
-                                                            <th class="text-white" style="background-color: #021780;">Metode</th>
-                                                            <th class="text-white" style="background-color: #021780;">Total</th>
-                                                            <th class="text-white" style="background-color: #021780;">Tanggal</th>
-                                                            <th class="text-white" style="background-color: #021780;">Status</th>
+                                                            <th class="text-white" style="background-color: #021780;">Name</th>
+                                                            <th class="text-white" style="background-color: #021780;">Cost</th>
+                                                            <th class="text-white" style="background-color: #021780;">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-                                                            <tr class="text-center">
-                                                                <td><?php echo $row['id_transaksi']; ?></td>
-                                                                <td><?php echo $row['username']; ?></td>
+                                                            <tr>
                                                                 <td><?php echo $row['nama']; ?></td>
-                                                                <td><?php echo $row['total']; ?></td>
-                                                                <td><?php echo $row['tanggal']; ?></td>
-                                                                <td class="text-center"><?php echo $row['status'] ?></td>
+                                                                <td class="text-center"><?php echo $row['biaya'] ?></td>
+                                                                <td class="mx-0 px-0 text-center">
+                                                                    <a href="paymentEdit.php?id_metode=<?php echo $row['id_metode']; ?>" class="btn btn-warning">Edit</a>
+                                                                    <a href="paymentDelete.php?id_metode=<?php echo $row['id_metode']; ?>" class="btn btn-danger" onclick="return confirmDelete();">Delete</a>
+                                                                </td>
                                                             </tr>
                                                         <?php } ?>
                                                     </tbody>
@@ -67,6 +67,6 @@ if (!empty($_SESSION['status'])) {
 
 <script>
     function confirmDelete() {
-        return confirm("Are you sure you want to delete this event?");
+        return confirm("Are you sure you want to delete this payment method?");
     }
 </script>

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="layout/stylesheet.css" type="text/css" />
     <link rel="stylesheet" link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
@@ -34,7 +35,7 @@
                         <li class="nav-item my-auto">
                             <div class="dropdown">
                                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="avatar" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../assets/default.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                                    <img src="../assets/<?php echo $data['foto'] ?>" alt="" width="32" height="32" class="rounded-circle me-2">
                                     <?php echo $data['fullname'] ?>
                                 </a>
                                 <ul class="dropdown-menu text-small shadow" aria-labelledby="avatar">

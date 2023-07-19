@@ -6,7 +6,7 @@ if (!empty($_SESSION['status'])) {
     include "../lib/koneksi.php";
 ?>
     <main>
-        <div class="container" style="min-height: 76vh;">
+        <div class="container-fluid" style="min-height: 76vh;">
             <div class="row" text-center mb-3>
                 <?php include "sidebar.php" ?>
                 <div class="col-lg-10 mt-4">
@@ -24,40 +24,47 @@ if (!empty($_SESSION['status'])) {
                                 <div class="card-body">
                                     <div class="container">
                                         <div class="row">
-                                            <h3>Edit Event</h3>
-                                            <form method="POST" action="actEditEvent.php" enctype="multipart/form-data">
+                                            <form method="POST" action="eventEditAct.php" enctype="multipart/form-data">
                                                 <input type="hidden" name="id" value="<?php echo $data['id_event']; ?>">
-                                                <div class="card h-300 mb-3">
-                                                    <img src="../assets/<?php echo $data['gambar']; ?>" class="card-img-top" alt="Poster">
-                                                    <div class="card-body">
-                                                        <label for="gambar" class="btn btn-primary">
-                                                            Choose Image
-                                                            <input type="file" class="form-control-file d-none" id="gambar" name="gambar">
-                                                        </label>
-                                                    </div>
+                                                <div class="mb-3">
+                                                    <h5>Photo Profile</h5>
+                                                    <img src="../assets/<?php echo $data['gambar']; ?>" class="rounded w-50" alt="Poster">
+                                                    <input type="file" class="form-control" id="gambar" name="gambar">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="nama" class="form-label">Nama</label>
+                                                    <label for="nama" class="form-label">
+                                                        <h5 class="m-0">Event Name</h5>
+                                                    </label>
                                                     <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $data['nama']; ?>" required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                                                    <label for="deskripsi" class="form-label">
+                                                        <h5 class="m-0">Description</h5>
+                                                    </label>
                                                     <textarea class="form-control" id="deskripsi" name="deskripsi" rows="4" required><?php echo $data['deskripsi']; ?></textarea>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="tanggal" class="form-label">Tanggal</label>
+                                                    <label for="tanggal" class="form-label">
+                                                        <h5 class="m-0">Date</h5>
+                                                    </label>
                                                     <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?php echo $data['tanggal']; ?>" required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="jam" class="form-label">Jam</label>
+                                                    <label for="jam" class="form-label">
+                                                        <h5 class="m-0">Time</h5>
+                                                    </label>
                                                     <input type="time" class="form-control" id="jam" name="jam" value="<?php echo $data['jam']; ?>" required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="lokasi" class="form-label">Lokasi</label>
+                                                    <label for="lokasi" class="form-label">
+                                                        <h5 class="m-0">Location</h5>
+                                                    </label>
                                                     <input type="text" class="form-control" id="lokasi" name="lokasi" value="<?php echo $data['lokasi']; ?>" required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="status" class="form-label">Status</label>
+                                                    <label for="status" class="form-label">
+                                                        <h5 class="m-0">Status</h5>
+                                                    </label>
                                                     <select class="form-control" id="status" name="status" required>
                                                         <option value="ready" <?php echo ($data['status'] === 'ready') ? 'selected' : ''; ?>>
                                                             Ready
@@ -68,11 +75,15 @@ if (!empty($_SESSION['status'])) {
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="provinsi" class="form-label">Provinsi</label>
+                                                    <label for="provinsi" class="form-label">
+                                                        <h5 class="m-0">Province</h5>
+                                                    </label>
                                                     <input type="text" class="form-control" id="provinsi" name="provinsi" value="<?php echo $data['provinsi']; ?>" required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="kategori" class="form-label">Kategori</label>
+                                                    <label for="kategori" class="form-label">
+                                                        <h5 class="m-0">Category</h5>
+                                                    </label>
                                                     <select class="form-control" id="kategori" name="kategori" required>
                                                         <?php while ($kategori = mysqli_fetch_assoc($reqKategori)) {  ?>
                                                             <option value="<?php echo $kategori['id_kategori'] ?>" <?php echo ($data['id_kategori'] === $kategori['id_kategori']) ? 'selected' : ''; ?>>
@@ -102,9 +113,3 @@ if (!empty($_SESSION['status'])) {
     header('Location: ../login.php');
 }
 ?>
-
-<script>
-    function confirmDelete() {
-        return confirm("Are you sure you want to delete this event?");
-    }
-</script>
