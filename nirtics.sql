@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2023 at 09:26 AM
+-- Generation Time: Jul 20, 2023 at 01:08 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -88,7 +88,9 @@ INSERT INTO `detail_transaksi` (`id_detail`, `id_tiket`, `id_transaksi`, `qty`, 
 (12, 27, 5, 1, '600000'),
 (13, 28, 5, 1, '700000'),
 (14, 27, 6, 1, '600000'),
-(15, 28, 6, 1, '700000');
+(15, 28, 6, 1, '700000'),
+(16, 9, 7, 1, '1500000'),
+(17, 10, 7, 1, '1750000');
 
 -- --------------------------------------------------------
 
@@ -128,7 +130,8 @@ INSERT INTO `event` (`id_event`, `id_kategori`, `nama`, `deskripsi`, `tanggal`, 
 (12, 1, 'Dewa 19 All Star - Jakarta', 'DEWA 19 ALL STAR - JAKARTA', '2023-08-12', '19:00:00', 'Gelora Bung Karno', 'g12.png', 'ready', 'Jakarta'),
 (13, 1, 'Dewa 19 All Start - Solo', 'DEWA 19 ALL STAR - SOLO', '2023-07-29', '19:00:00', 'Stadion Manahan', 'g13.png', 'ready', 'Jawa Tengah'),
 (14, 1, 'JOYLAND JAKARTA 2023', '-Music and arts festival held outdoors in open green space\r\n\r\n-Three days of live music, comedy, film, workshops, and marketplace across different areas of the venue\r\n\r\n-A multisensory festival that collaborates with artists in various creative fields', '2023-11-24', '15:00:00', 'Ecopark Ancol', 'g14.jpg', 'ready', 'Jakarta'),
-(15, 1, 'Bebaskan Energimu Konser - Sidoarjo', 'Persembahan Konser musik kolaboratif dari Kratingdaeng Indonesia untuk Sahabat NOAH yang berada di kota Sidoarjo.\r\n\r\nBebaskan Energi, tuk Jalani Mimpi!', '2023-07-08', '16:00:00', 'Parkir Timur Stadion Gelora Delta Sidoarjo', 'g15.jpg', 'ready', 'Jawa Timur');
+(15, 1, 'Bebaskan Energimu Konser - Sidoarjo', 'Persembahan Konser musik kolaboratif dari Kratingdaeng Indonesia untuk Sahabat NOAH yang berada di kota Sidoarjo.\r\n\r\nBebaskan Energi, tuk Jalani Mimpi!', '2023-07-08', '16:00:00', 'Parkir Timur Stadion Gelora Delta Sidoarjo', 'g15.jpg', 'ready', 'Jawa Timur'),
+(18, 2, 'Seni Tulang Punggung', 'Seni Tulang Punggung', '2023-07-29', '20:00:00', 'Taman Pintar', '2020_05_27-15_33_11_b60e87473be7eebe0962d671d3c57270_960x640_thumb.jpg', 'ready', 'Yogyakarta');
 
 -- --------------------------------------------------------
 
@@ -262,7 +265,8 @@ INSERT INTO `tiket` (`id_tiket`, `id_event`, `nama`, `harga`, `stok`) VALUES
 (32, 14, 'Presale 1', '700000', 3000),
 (33, 14, 'Presale 2', '800000', 3000),
 (34, 14, 'Presale 3', '900000', 4000),
-(35, 15, 'Festival', '70000', 5000);
+(35, 15, 'Festival', '70000', 5000),
+(36, 18, 'Belangsak', '100000', 800);
 
 -- --------------------------------------------------------
 
@@ -289,7 +293,8 @@ INSERT INTO `transaksi` (`id_transaksi`, `id_user`, `id_metode`, `tanggal`, `tot
 (3, 2, NULL, NULL, NULL, 'MENUNGGU'),
 (4, 2, NULL, NULL, NULL, 'MENUNGGU'),
 (5, 2, NULL, NULL, NULL, 'MENUNGGU'),
-(6, 2, 3, '2023-07-12 17:30:12', '1302500', 'SUKSES');
+(6, 2, 3, '2023-07-12 17:30:12', '1302500', 'SUKSES'),
+(7, 5, 6, '2023-07-20 17:03:26', '3252500', 'SUKSES');
 
 -- --------------------------------------------------------
 
@@ -314,10 +319,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `fullname`, `username`, `email`, `no_hp`, `foto`, `password`, `date_join`, `level`) VALUES
-(1, 'muhammad sidiq firmansyah', 'sidiq', 'sidiq.firman48@gmail.com', '085740031048', 'default.png', '123', '2023-06-30 15:40:19', 'admin'),
+(1, 'Muhammad Sidiq Firmansyah', 'sidiq', 'sidiq.firman48@gmail.com', '085740031048', 'default.png', '123', '2023-06-30 15:40:19', 'admin'),
 (2, 'user', 'user', 'user.tester@example.com', '082138876452', 'is-not-equal-to.png', '123', '2023-06-30 15:42:28', 'user'),
 (3, 'ahmad nur fauzi', 'ahmadnur', 'ahmadnur@gmail.com', '085640002000', 'default.png', 'ahmad', '2023-07-02 06:00:52', 'user'),
-(4, 'example', 'example', 'example', '08612312', 'default.png', '123', '2023-07-13 08:51:59', 'user');
+(5, 'Mamat Nur Fauzi', 'mamat', 'mamat@gmail.com', '085749005600', 'default.png', '123', '2023-07-20 11:56:44', 'user');
 
 -- --------------------------------------------------------
 
@@ -409,43 +414,43 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT for table `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  MODIFY `id_detail` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_detail` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id_event` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_event` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kategori` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `metode_pembayaran`
 --
 ALTER TABLE `metode_pembayaran`
-  MODIFY `id_metode` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_metode` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tiket`
 --
 ALTER TABLE `tiket`
-  MODIFY `id_tiket` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_tiket` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_transaksi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

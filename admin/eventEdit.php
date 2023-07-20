@@ -30,6 +30,7 @@ if (!empty($_SESSION['status'])) {
                                                     <h5>Photo Profile</h5>
                                                     <img src="../assets/<?php echo $data['gambar']; ?>" class="rounded w-50" alt="Poster">
                                                     <input type="file" class="form-control" id="gambar" name="gambar">
+                                                    <input type="hidden" name="default" value="<?php echo $data['gambar'] ?>">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="nama" class="form-label">
