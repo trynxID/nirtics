@@ -4,6 +4,7 @@
     <title>Nirtics</title>
     <link rel="stylesheet" link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../assets/Logo Nirtic polos.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <style>
         body {
@@ -30,6 +31,7 @@
                     <img id="avatar" src="../assets/<?php echo $data['foto'] ?>" style="width: 100px; height: 100px;" class="rounded-circle">
                     </img>
                 </label>
+                <input type="hidden" name="default" value="<?php echo $data['foto'] ?>">
                 <input id="foto" name="foto" type="file" onchange="previewFile(this);" style="display: none;" />
                 <script>
                     function previewFile(input) {
