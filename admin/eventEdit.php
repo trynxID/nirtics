@@ -27,7 +27,7 @@ if (!empty($_SESSION['status'])) {
                                             <form method="POST" action="eventEditAct.php" enctype="multipart/form-data">
                                                 <input type="hidden" name="id" value="<?php echo $data['id_event']; ?>">
                                                 <div class="mb-3">
-                                                    <h5>Photo Profile</h5>
+                                                    <h5>Event Image</h5>
                                                     <img src="../assets/<?php echo $data['gambar']; ?>" class="rounded w-50" alt="Poster">
                                                     <input type="file" class="form-control" id="gambar" name="gambar">
                                                     <input type="hidden" name="default" value="<?php echo $data['gambar'] ?>">
