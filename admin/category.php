@@ -21,9 +21,10 @@ if (!empty($_SESSION['status'])) {
                                 <div class="card-body">
                                     <div class="container">
                                         <div class="row">
-                                            <h3 class="mb-0">List Categories</h3>
+                                            <h3 class="mb-3">List Categories</h3>
+                                            <hr>
                                             <div class="col">
-                                                <div class="text-start mt-3 mb-3">
+                                                <div class="text-start mb-3">
                                                     <a href="categoryAdd.php" class="btn btn-success">Add Category</a>
                                                 </div>
                                                 <table class="table table-bordered table-striped">

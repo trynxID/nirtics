@@ -36,6 +36,7 @@ if (!empty($_SESSION['status'])) {
                                                         <img id="ava" src="../assets/<?php echo $data['foto'] ?>" style="width: 100px; height: 100px;" class="rounded-circle">
                                                         </img>
                                                     </label>
+                                                    <input type="hidden" name="default" value="<?php echo $data['foto'] ?>">
                                                     <input id="foto" name="foto" type="file" onchange="previewFile(this);" style="display: none;" />
                                                     <script>
                                                         function previewFile(input) {

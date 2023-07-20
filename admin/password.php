@@ -24,7 +24,7 @@ if (!empty($_SESSION['status'])) {
                                             <h3 class="mb-3">Change Password</h3>
                                             <hr>
                                             <div class="col">
-                                                <form method="POST" action="passwordAct.php">
+                                                <form method="POST" action="passwordAct.php" class="validate">
                                                     <div class="mb-3">
                                                         <label for="oldpass" class="form-label">Old Password</label>
                                                         <input type="password" class="form-control" id="oldpass" name="oldpass" required>
@@ -37,10 +37,11 @@ if (!empty($_SESSION['status'])) {
                                                         <div class="col mb-3">
                                                             <label for="newpass" class="form-label">Re-type New Password</label>
                                                             <input type="password" class="form-control" id="renewpass" name="renewpass" required>
+                                                            <div style="margin-top: 7px;" id="CheckPasswordMatch"><br></div>
                                                         </div>
                                                     </div>
                                                     <div class="text-start mb-3">
-                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                        <button type="submit" class="btn btn-primary" id="formButton">Save</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -54,6 +55,24 @@ if (!empty($_SESSION['status'])) {
             </div>
         </div>
     </main>
+    <script>
+        $(document).ready(function() {
+            // Cache the formButton element to avoid redundant DOM selection
+            var formButton = $("#formButton");
+            formButton.prop('disabled', true).addClass('disabled');
+            $("#renewpass").on('keyup', function() {
+                var password = $("#newpass").val();
+                var confirmPassword = $("#renewpass").val();
+
+                if (password !== confirmPassword) {
+                    $("#CheckPasswordMatch").html("Password does not match !").css("color", "red");
+                } else {
+                    $("#CheckPasswordMatch").html("Password match !").css("color", "green");
+                    formButton.prop('disabled', false).removeClass('disabled');
+                }
+            });
+        });
+    </script>
 <?php
     include "layout/footer.php";
 } else {

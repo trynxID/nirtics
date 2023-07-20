@@ -24,8 +24,9 @@ if (!empty($_SESSION['status'])) {
                                 <div class="card-body">
                                     <div class="container">
                                         <div class="row">
-                                            <h3>Ticket : <?php echo $event['nama']  ?></h3>
-                                            <div class="text-start mt-3 mb-3">
+                                            <h3 class="mb-3">Ticket : <?php echo $event['nama']  ?></h3>
+                                            <hr>
+                                            <div class="text-start mb-3">
                                                 <a href="ticketAdd.php?id_event=<?php echo $id_event; ?> " class="btn btn-primary">Add Ticket</a>
                                             </div>
                                             <table class="table table-bordered">
