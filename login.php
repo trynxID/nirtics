@@ -13,7 +13,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-family: 'Poppins', sans-serif;
+		font-family: 'Segoe UI', sans-serif;
 	}
 
 	.btn {
