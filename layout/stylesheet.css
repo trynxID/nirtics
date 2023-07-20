@@ -25,6 +25,12 @@ body {
   border-radius: 100%;
   border-color: black;
 }
+.card-body h6 {
+  -webkit-line-clamp: 1 !important;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
 @media (max-width: 991.98px) {
   .navbar-collapse {
     width: 100%;

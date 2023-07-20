@@ -62,9 +62,9 @@ include "lib/koneksi.php";
                 ?>
                         <div class="col pb-2">
                             <div class="card shadow border-0">
-                                <img src="assets/<?php echo $row['gambar'] ?>" class="d-block rounded">
+                                <img src="assets/<?php echo $row['gambar'] ?>" class="d-block rounded" style="max-height: 130px;object-fit: cover">
                                 <div class="card-body ">
-                                    <h6 class="mb-1"><?php echo (strlen($row['nama']) > 25) ? str_pad(substr($row['nama'], 0, 22), 25, ".") : $row['nama'] ?></h6>
+                                    <h6 class="mb-1"><?php echo $row['nama'] ?></h6>
                                     <p class="mb-1"><?php echo $row['tanggal']; ?></p>
                                     <h6 class="mb-3 ">
                                         <?php
@@ -102,9 +102,9 @@ include "lib/koneksi.php";
                 ?>
                         <div class="col pb-2">
                             <div class="card shadow border-0">
-                                <img src="assets/<?php echo $row['gambar'] ?>" class="d-block rounded">
+                                <img src="assets/<?php echo $row['gambar'] ?>" class="d-block rounded" style="max-height: 130px;object-fit: cover">
                                 <div class="card-body ">
-                                    <h6 class="mb-1"><?php echo (strlen($row['nama']) > 25) ? str_pad(substr($row['nama'], 0, 22), 25, ".") : $row['nama'] ?></h6>
+                                    <h6 class="mb-1"><?php echo $row['nama'] ?></h6>
                                     <p class="mb-1"><?php echo $row['tanggal']; ?></p>
                                     <h6>
                                         <?php
@@ -142,9 +142,9 @@ include "lib/koneksi.php";
                         <div class="col pb-2">
                             <div class="card shadow border-0">
                                 <div></div>
-                                <img src="assets/<?php echo $row['gambar'] ?>" class="d-block rounded">
+                                <img src="assets/<?php echo $row['gambar'] ?>" class="d-block rounded" style="max-height: 130px;object-fit: cover">
                                 <div class="card-body ">
-                                    <h6 class="mb-1"><?php echo (strlen($row['nama']) > 25) ? str_pad(substr($row['nama'], 0, 22), 25, ".") : $row['nama'] ?></h6>
+                                    <h6 class="mb-1"><?php echo $row['nama'] ?></h6>
                                     <p class="mb-1"><?php echo $row['tanggal']; ?></p>
                                     <h6>
                                         <?php

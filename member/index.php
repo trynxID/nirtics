@@ -3,7 +3,7 @@ session_start();
 $ses_id = $_SESSION['id'];
 $_SESSION['event'] = 0;
 if (!empty($_SESSION['status'])) {
-    include "layout/header.php";
+    require "layout/header.php";
     include "../lib/koneksi.php";
 ?>
     <div class="container-fluid" style="min-height: 76vh;">
@@ -40,7 +40,7 @@ if (!empty($_SESSION['status'])) {
                                             <div class="card shadow border-0">
                                                 <img src="../assets/<?php echo $row['gambar'] ?>" class="d-block rounded" style="max-height: 130px;object-fit: cover">
                                                 <div class="card-body ">
-                                                    <h6 class="mb-1"><?php echo (strlen($row['nama']) > 25) ? str_pad(substr($row['nama'], 0, 22), 25, ".") : $row['nama'] ?></h6>
+                                                    <h6 class="mb-1" id="eventName"><?php echo $row['nama'] ?></h6>
                                                     <p class="mb-1"><?php echo $row['tanggal']; ?></p>
                                                     <h6 class="mb-1 ">
                                                         <?php
