@@ -3,6 +3,7 @@
 <head>
     <title>Nirtics</title>
     <link rel="stylesheet" link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/Logo Nirtic polos.png">
     <style>
         body {
             background-color: #021780;
