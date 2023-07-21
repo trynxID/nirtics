@@ -27,15 +27,15 @@ if (!empty($_SESSION['status'])) {
                                             <h3 class="mb-3">Ticket : <?php echo $event['nama']  ?></h3>
                                             <hr>
                                             <div class="text-start mb-3">
-                                                <a href="ticketAdd.php?id_event=<?php echo $id_event; ?> " class="btn btn-primary">Add Ticket</a>
+                                                <a href="ticketAdd.php?id_event=<?php echo $id_event; ?> " class="btn btn-success">Add Ticket</a>
                                             </div>
-                                            <table class="table table-bordered">
+                                            <table class="table table-bordered table-striped">
                                                 <thead>
                                                     <tr class="text-center">
-                                                        <th>Ticket Name</th>
-                                                        <th>Price</th>
-                                                        <th>Stock</th>
-                                                        <th>Action</th>
+                                                        <th class="text-white" style="background-color: #021780;">Ticket Name</th>
+                                                        <th class="text-white" style="background-color: #021780;">Price</th>
+                                                        <th class="text-white" style="background-color: #021780;">Stock</th>
+                                                        <th class="text-white" style="background-color: #021780;">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -45,7 +45,7 @@ if (!empty($_SESSION['status'])) {
                                                             <td><?php echo $data['harga']; ?></td>
                                                             <td><?php echo $data['stok']; ?></td>
                                                             <td class="mx-0 px-0 text-center">
-                                                                <a href="ticketEdit.php?id_tiket=<?php echo $data['id_tiket'] . "&id_event=" . $id_event; ?>" class="btn btn-primary">Edit</a>
+                                                                <a href="ticketEdit.php?id_tiket=<?php echo $data['id_tiket'] . "&id_event=" . $id_event; ?>" class="btn btn-warning">Edit</a>
                                                                 <a href="ticketDelete.php?id_tiket=<?php echo $data['id_tiket'] . "&id_event=" . $id_event; ?>" class="btn btn-danger" onclick="return confirmDelete();">Delete</a>
                                                             </td>
                                                         </tr>

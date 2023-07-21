@@ -2,9 +2,6 @@
 include "layout/header.php";
 include "lib/koneksi.php";
 ?>
-<!-- end navbar -->
-
-<!-- ========== Start Banner ========== -->
 <section id="banner">
     <?php
     $sql = "SELECT * FROM banner;";
@@ -35,15 +32,14 @@ include "lib/koneksi.php";
                     $row = mysqli_fetch_assoc($result2);
                     $number = $row['total'];
                     for ($i = 0; $i < $number; $i++) { ?>
-                        <button type="button" data-bs-target="#crs" data-bs-slide-to="<?php echo $i ?>" class="<?= ($i == 0) ? 'active' : '' ?>" aria-current="<?= ($i == 0) ? 'true' : 'false' ?>" aria-label="Slide <?php echo $i + 1 ?>"></button>
+                        <button type="button" data-bs-target="#crs" data-bs-slide-to="<?php echo $i ?>" class="<?= ($i == 0) ? 'active' : '' ?>" aria-current="<?= ($i == 0) ? 'true' : 'false' ?>" aria-label="Slide <?php echo $i + 1 ?>">
+                        </button>
                     <?php } ?>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- ========== End Banner ========== -->
-<!-- ========== Start List Event ========== -->
 <section id="featuredEvent">
     <?php
     $sql = "SELECT id_event ,gambar,event.nama as nama,tanggal FROM event where status='ready' order by rand() LIMIT 4; ";
@@ -82,8 +78,6 @@ include "lib/koneksi.php";
         </div>
     </div>
 </section>
-<!-- ========== End List Event ========== -->
-<!-- Musik -->
 <section id="musicEvent">
     <?php
     $sql = "SELECT id_event,gambar,event.nama as nama,tanggal FROM event where status='ready' and id_kategori=1 LIMIT 4;";
@@ -122,8 +116,6 @@ include "lib/koneksi.php";
         </div>
     </div>
 </section>
-<!-- end Musik -->
-<!-- Sport -->
 <section id="sportEvent">
     <?php
     $sql = "SELECT id_event,gambar,event.nama as nama,tanggal,(SELECT harga from tiket limit 1) as harga FROM event where status='ready' and id_kategori=6 LIMIT 4;";
@@ -162,10 +154,6 @@ include "lib/koneksi.php";
         </div>
     </div>
 </section>
-<!-- end Sport -->
-<!-- footer -->
 <?php
 include "layout/footer.php";
 ?>
-
-<!-- end footer -->
