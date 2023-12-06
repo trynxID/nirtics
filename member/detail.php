@@ -16,7 +16,7 @@ if (!empty($_SESSION['status'])) {
     <div class="container" style="max-width: 1100px; height:100vh ">
         <div class="row mx-6">
             <section id="detail" class="col-lg-8">
-                <H3 class="pt-4">Detail Pemesanan</H3>
+                <H3 class="pt-4">Order Details</H3>
                 <div class="py-3">
                     <div class="card">
                         <div class="card-body">
@@ -45,10 +45,10 @@ if (!empty($_SESSION['status'])) {
                             <hr class="my-2">
                             <div class="row justify-content-end text-center">
                                 <div class="col-2 me-3">
-                                    <h6>Harga</h6>
+                                    <h6>Price</h6>
                                 </div>
                                 <div class="col-2 me-3">
-                                    <h6>Jumlah</h6>
+                                    <h6>Amount</h6>
                                 </div>
                             </div>
                             <hr class="mt-1 mb-2">
@@ -74,7 +74,7 @@ if (!empty($_SESSION['status'])) {
                 <div class="row">
                     <div class="card mb-3">
                         <div class="card-body">
-                            <h5>Metode Pembayaran</h5>
+                            <h5>Payment Method</h5>
                             <form action="actBuy.php" method="POST">
                                 <?php
                                 while ($metode = mysqli_fetch_assoc($reqMetode)) {
@@ -92,10 +92,10 @@ if (!empty($_SESSION['status'])) {
                     <div class="card">
                         <form action="actBuy.php" method="POST">
                             <div class="card-body">
-                                <h5 class="mb-3">Detail Harga</h5>
+                                <h5 class="mb-3">Price Details</h5>
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-6 me-3">Total Harga </div>
+                                        <div class="col-6 me-3">Total Price </div>
                                         <?php
                                         $reqTotal1 = mysqli_query($link, "SELECT SUM(dt.subtotal) as total FROM detail_transaksi dt join tiket using (id_tiket) where id_transaksi = $transaksi");
                                         while ($total = mysqli_fetch_assoc($reqTotal1)) {
@@ -107,7 +107,7 @@ if (!empty($_SESSION['status'])) {
                                         <?php } ?>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6 me-3">Biaya Admin </div>
+                                        <div class="col-6 me-3">Admin Fee</div>
                                         <div class="col text-end">
                                             <input type="hidden" name="id_metode" id="id_metode">
                                             <input type="hidden" name="biayaadmin" id="biayaadmin">
@@ -117,7 +117,7 @@ if (!empty($_SESSION['status'])) {
                                     <hr class="my-2">
                                     <div class="row">
                                         <div class="col">
-                                            <h6 class="fw-medium">Total Biaya</h6>
+                                            <h6 class="fw-medium">Total Pay</h6>
                                         </div>
                                         <?php
                                         $reqTotal2 = mysqli_query($link, "SELECT SUM(dt.subtotal) as total FROM detail_transaksi dt join tiket using (id_tiket) where id_transaksi = $transaksi");
@@ -133,7 +133,7 @@ if (!empty($_SESSION['status'])) {
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-primary w-100" type="submit">Konfirmasi</button>
+                            <button class="btn btn-primary w-100 mb-3 fw-semibold" type="submit">Confirm</button>
                         </form>
                     </div>
                 </div>

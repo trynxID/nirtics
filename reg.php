@@ -55,7 +55,7 @@
                                     <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="noHp" name="noHp" placeholder="No. HP" required>
+                                    <input type="text" class="form-control" id="noHp" name="noHp" placeholder="Phone Number" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100 mt-3">Register</button>
                                 <div class="text-center">

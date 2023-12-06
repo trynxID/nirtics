@@ -71,7 +71,7 @@ if (!empty($_SESSION['status'])) {
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="no_hp" class="form-label">
-                                                        <h5>No HP</h5>
+                                                        <h5>Phone Number</h5>
                                                     </label>
                                                     <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?php echo $data['no_hp']; ?>" required>
                                                 </div>

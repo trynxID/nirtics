@@ -29,7 +29,7 @@ if (!empty($_SESSION['status'])) {
                                                             <th class="text-white" style="background-color: #021780;">Fullname</th>
                                                             <th class="text-white" style="background-color: #021780;">Username</th>
                                                             <th class="text-white" style="background-color: #021780;">Email</th>
-                                                            <th class="text-white" style="background-color: #021780;">No. HP</th>
+                                                            <th class="text-white" style="background-color: #021780;">Phone Number</th>
                                                             <th class="text-white" style="background-color: #021780;">Date Join</th>
                                                             <th class="text-white" style="background-color: #021780;">Action</th>
                                                         </tr>

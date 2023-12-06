@@ -15,7 +15,7 @@
 
 <body>
     <div class="container" style="max-width: 1200px;">
-        <h1 class="mt-4 mb-4">Informasi Pengguna</h1>
+        <h1 class="mt-4 mb-4">User Profile</h1>
         <?php
         include "../lib/koneksi.php";
         session_start();
@@ -66,12 +66,12 @@
             </div>
             <div class="mb-3">
                 <label for="no_hp" class="form-label">
-                    <h6>No HP</h6>
+                    <h6>Phone Number</h6>
                 </label>
                 <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?php echo $data['no_hp']; ?>" required>
             </div>
-            <button type="submit" class="btn btn-primary">Simpan</button>
-            <a href="index.php" class="btn btn-secondary">Kembali</a>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="index.php" class="btn btn-secondary">Back</a>
         </form>
     </div>
 </body>

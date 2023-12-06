@@ -35,12 +35,12 @@ if (!empty($_SESSION['status'])) {
                                                     <?php echo $data['event'] ?>
                                                     |
                                                     <?php echo $data['qty'] ?>
-                                                    Tiket
+                                                    Ticket
                                                     <?php echo $data['tiket'] ?>
                                                 </span>
                                                 <span>
                                                     <br>
-                                                    Pembelian pada
+                                                    Purchase on
                                                     <?php echo date("d M Y, H:i:s ", strtotime($data['tanggal_transaksi']))  ?>
                                                 </span>
                                             </div>
